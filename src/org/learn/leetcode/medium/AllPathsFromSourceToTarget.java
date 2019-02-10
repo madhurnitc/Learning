@@ -8,6 +8,7 @@ public class AllPathsFromSourceToTarget {
     public List<List<Integer>> allPathsSourceTarget(int[][] graph) {
         List<List<Integer>> result = new ArrayList<>();
         List<Integer> path = new ArrayList<>();
+        path.add(0);
         allPathsSourceTarget(graph, 0, result, path);
         return result;
     }

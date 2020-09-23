@@ -15,7 +15,7 @@ public class SlidingWindow {
 
     private void buildDeq(int i, int k) {
 
-        while(!deq.isEmpty() && deq.getFirst() <= i-k) {
+        while (!deq.isEmpty() && deq.getFirst() <= i - k) {
             deq.removeFirst();
         }
 
@@ -24,10 +24,11 @@ public class SlidingWindow {
         }
         deq.addLast(i);
 
-        if(i>=k-1) {
-            result[i-k+1] = nums[deq.getFirst()];
+        if (i >= k - 1) {
+            result[i - k + 1] = nums[deq.getFirst()];
         }
     }
+
     public int[] maxSlidingWindow(int[] nums, int k) {
         int n = nums.length;
         if (n * k == 0) return new int[0];
@@ -35,11 +36,11 @@ public class SlidingWindow {
 
         this.nums = nums;
         this.result = new int[n - k + 1];
-        for(int i =0; i<k; i++) {
+        for (int i = 0; i < k; i++) {
             buildDeq(i, k);
         }
 
-        for(int i =k ; i< n; i++) {
+        for (int i = k; i < n; i++) {
             buildDeq(i, k);
         }
 
@@ -47,8 +48,8 @@ public class SlidingWindow {
     }
 
     public static void main(String[] args) {
-        SlidingWindow  window = new SlidingWindow();
-        window.maxSlidingWindow(new int[] {1,3,-1,-3,5,3,6,7}, 3);
+        SlidingWindow window = new SlidingWindow();
+        window.maxSlidingWindow(new int[]{1, 3, -1, -3, 5, 3, 6, 7}, 3);
         System.out.println(Arrays.toString(window.result));
     }
 }

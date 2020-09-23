@@ -10,21 +10,21 @@ public class ValidParenThesis {
 
         Map<Character, Character> mapping = new HashMap<>();
 
-        mapping.put('}','{');
-        mapping.put(')','(');
-        mapping.put(']','[');
+        mapping.put('}', '{');
+        mapping.put(')', '(');
+        mapping.put(']', '[');
 
         Stack<Character> openParStack = new Stack<>();
-        for(int i  =0 ; i< s.length(); i++) {
+        for (int i = 0; i < s.length(); i++) {
 
             char c = s.charAt(i);
-            if( c == '{'  || c == '[' || c == '(') {
+            if (c == '{' || c == '[' || c == '(') {
                 openParStack.push(c);
-            }else {
-                 char popPar = openParStack.pop();
-                 if( mapping.get(c) != popPar) {
-                     return false;
-                 }
+            } else {
+                char popPar = openParStack.pop();
+                if (mapping.get(c) != popPar) {
+                    return false;
+                }
 
             }
         }
@@ -33,6 +33,7 @@ public class ValidParenThesis {
     }
 
     public static void main(String[] args) {
-        System.out.println(new ValidParenThesis().isValid("()[]{}"));;
+        System.out.println(new ValidParenThesis().isValid("()[]{}"));
+        ;
     }
 }

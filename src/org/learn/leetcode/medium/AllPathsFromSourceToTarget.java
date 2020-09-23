@@ -16,16 +16,16 @@ public class AllPathsFromSourceToTarget {
     private void allPathsSourceTarget(int[][] graph, int node, List<List<Integer>> result, List<Integer> path) {
 
 
-        if( node == graph.length-1) {
+        if (node == graph.length - 1) {
             List<Integer> temp = new ArrayList<>(path);
             result.add(temp);
             return;
         }
 
-        for(int neighbor : graph[node]) {
+        for (int neighbor : graph[node]) {
             path.add(neighbor);
             allPathsSourceTarget(graph, neighbor, result, path);
-            path.remove(path.size()-1);   // this is to clear the path list once a neighbor has been completed.
+            path.remove(path.size() - 1);   // this is to clear the path list once a neighbor has been completed.
         }
     }
 }

@@ -19,7 +19,6 @@ class LRUCache {
             this.value = value;
         }
     }
-
     public class DoublyLinkedList {
 
         Node head, tail;
@@ -31,13 +30,13 @@ class LRUCache {
 
         public void moveItemToEnd(Node n) {
 
-            if(head == n && tail != n) {
+            if (head == n && tail != n) {
 
                 tail.next = n;
                 n.prev = tail;
                 head = head.next;
 
-            }else if(tail != n) {
+            } else if (tail != n) {
 
                 tail.next = n;
                 n.prev.next = n.next;
@@ -45,20 +44,20 @@ class LRUCache {
                 n.prev = tail;
 
             }
-            n.next =  null;
+            n.next = null;
             tail = n;
 
         }
 
         public void enqueue(Node n) {
-            if(head == null) {
+            if (head == null) {
                 head = n;
                 tail = n;
                 n.prev = null;
-            }else {
-                 n.prev = tail;
-                 tail.next = n;
-                 tail = n;
+            } else {
+                n.prev = tail;
+                tail.next = n;
+                tail = n;
             }
 
             n.next = null;
@@ -67,7 +66,7 @@ class LRUCache {
         public Node dequeue() {
 
             Node temp = null;
-            if(head != null) {
+            if (head != null) {
                 temp = head;
                 head = head.next;
             }
@@ -75,6 +74,7 @@ class LRUCache {
             return temp;
         }
     }
+
     public LRUCache(int capacity) {
         map = new HashMap<>();
         list = new DoublyLinkedList();
@@ -83,7 +83,7 @@ class LRUCache {
 
     public int get(int key) {
 
-        if(map.containsKey(key)) {
+        if (map.containsKey(key)) {
             Node n = map.get(key);
             list.moveItemToEnd(n);
             return n.value;
@@ -95,33 +95,33 @@ class LRUCache {
 
     public void put(int key, int value) {
 
-       if(map.containsKey(key)) {
-           Node n = map.get(key);
-           n.value = value;
-           list.moveItemToEnd(n);
-       }else {
+        if (map.containsKey(key)) {
+            Node n = map.get(key);
+            n.value = value;
+            list.moveItemToEnd(n);
+        } else {
 
-           if(map.size() == capacity) {
+            if (map.size() == capacity) {
 
-               Node leastUsed = list.dequeue();
-               map.remove(leastUsed.key);
+                Node leastUsed = list.dequeue();
+                map.remove(leastUsed.key);
 
-           }
+            }
 
-           Node n  = new Node(key, value);
-           map.put(key,n);
-           list.enqueue(n);
-       }
+            Node n = new Node(key, value);
+            map.put(key, n);
+            list.enqueue(n);
+        }
     }
 
     public static void main(String[] args) {
         LRUCache lruCache = new LRUCache(2);
-        lruCache.put(1,1);
-        lruCache.put(2,2);
+        lruCache.put(1, 1);
+        lruCache.put(2, 2);
         System.out.println(lruCache.get(1));
-        lruCache.put(3,3);
+        lruCache.put(3, 3);
         System.out.println(lruCache.get(2));
-        lruCache.put(4,4);
+        lruCache.put(4, 4);
         System.out.println(lruCache.get(1));
         System.out.println(lruCache.get(3));
         System.out.println(lruCache.get(4));

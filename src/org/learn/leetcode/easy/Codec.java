@@ -6,6 +6,7 @@ public class Codec {
 
 
     StringBuilder sb = new StringBuilder();
+
     // Encodes a tree to a single string.
     public String serialize(TreeNode root) {
 
@@ -14,12 +15,12 @@ public class Codec {
 
     private String serialize(TreeNode root, String result) {
 
-        if(root == null) {
+        if (root == null) {
             result = result + "#";
-        }else {
-            result = result +  root.val + ",";
-            result =  serialize(root.left, result);
-            result =  serialize(root.right, result);
+        } else {
+            result = result + root.val + ",";
+            result = serialize(root.left, result);
+            result = serialize(root.right, result);
         }
 
         return result;

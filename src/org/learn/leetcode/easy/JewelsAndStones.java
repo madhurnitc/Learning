@@ -10,12 +10,12 @@ public class JewelsAndStones {
         int result = 0;
 
         Set<Character> jewels = new HashSet<>();
-        for(int i =0; i< J.length();i++){
+        for (int i = 0; i < J.length(); i++) {
             jewels.add(J.charAt(i));
         }
 
-        for(int i=0; i< S.length(); i++) {
-            if(jewels.contains(S.charAt(i))){
+        for (int i = 0; i < S.length(); i++) {
+            if (jewels.contains(S.charAt(i))) {
                 result++;
             }
         }
@@ -26,7 +26,7 @@ public class JewelsAndStones {
 
     public static void main(String[] args) {
 
-        JewelsAndStones js =new JewelsAndStones();
+        JewelsAndStones js = new JewelsAndStones();
         System.out.println(js.numJewelsInStones("aA", "aAAbbb"));
         System.out.println(js.numJewelsInStones("z", "ZZ"));
 

@@ -4,23 +4,23 @@ import java.util.Stack;
 
 public class MakeParenthesisValid {
     public int minAddToMakeValid(String S) {
-        int result =  0;
+        int result = 0;
         int count = 0;
-        if(S.length() == 0) return result;
+        if (S.length() == 0) return result;
         Stack<Character> stack = new Stack<>();
 
-        for(int i  =0; i< S.length(); i++) {
-            if(S.charAt(i) == '(') {
+        for (int i = 0; i < S.length(); i++) {
+            if (S.charAt(i) == '(') {
                 stack.push(S.charAt(i));
-            }else if (S.charAt(i) == ')') {
-                if(stack.empty()) {
+            } else if (S.charAt(i) == ')') {
+                if (stack.empty()) {
                     count++;
-                }else {
+                } else {
                     stack.pop();
                 }
             }
         }
 
-        return stack.size() +  count;
+        return stack.size() + count;
     }
 }

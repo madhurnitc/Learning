@@ -8,15 +8,15 @@ public class UniqueEmailAddress {
     public int numUniqueEmails(String[] emails) {
 
         Set<String> uniqueEmails = new HashSet<>();
-        for(String email : emails) {
+        for (String email : emails) {
             String[] splittedEmail = email.split("@");
             String local = splittedEmail[0];
             String domain = splittedEmail[1];
             int index = local.indexOf("+");
-            if(index >= 0){
+            if (index >= 0) {
                 local = local.substring(0, index);
             }
-            local = local.replaceAll("\\.","");
+            local = local.replaceAll("\\.", "");
 
             uniqueEmails.add(local + domain);
         }
@@ -25,6 +25,6 @@ public class UniqueEmailAddress {
     }
 
     public static void main(String[] args) {
-        new UniqueEmailAddress().numUniqueEmails(new String[] {"testemail@leetcode.com","testemail1@leetcode.com","testemail+david@lee.tcode.com"});
+        new UniqueEmailAddress().numUniqueEmails(new String[]{"testemail@leetcode.com", "testemail1@leetcode.com", "testemail+david@lee.tcode.com"});
     }
 }

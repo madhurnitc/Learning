@@ -6,7 +6,7 @@ public class OddEvenLinkedList {
 
     public ListNode oddEvenList(ListNode head) {
 
-        if(head == null || head.next == null) {
+        if (head == null || head.next == null) {
             return head;
         }
 
@@ -15,10 +15,10 @@ public class OddEvenLinkedList {
 
         ListNode evenPtr = head.next.next;
 
-        while(oddList.next != null && evenList.next != null) {
+        while (oddList.next != null && evenList.next != null) {
             oddList.next = oddList.next.next;
             evenList.next = evenList.next.next;
-            oddList =  oddList.next;
+            oddList = oddList.next;
             evenList = evenList.next;
         }
 

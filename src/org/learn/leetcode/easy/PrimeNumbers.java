@@ -3,17 +3,17 @@ package org.learn.leetcode.easy;
 public class PrimeNumbers {
 
     public int countPrimes(int n) {
-        boolean[] prime = new boolean[n+1];
+        boolean[] prime = new boolean[n + 1];
         int count = 0;
-        for(int i =0 ;i< n+1; i++) {
+        for (int i = 0; i < n + 1; i++) {
             prime[i] = true;
         }
 
-        for(int p = 2; p*p< n ; p++) {
+        for (int p = 2; p * p < n; p++) {
 
-            if(prime[p] ==true) {
+            if (prime[p] == true) {
                 count++;
-                for(int i = p*p; i<=n ; i = i+p) {
+                for (int i = p * p; i <= n; i = i + p) {
                     prime[i] = false;
                 }
             }

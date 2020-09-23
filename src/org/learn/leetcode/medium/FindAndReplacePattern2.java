@@ -10,16 +10,16 @@ public class FindAndReplacePattern2 {
     public List<String> findAndReplacePattern(String[] words, String pattern) {
 
         List<String> result = new ArrayList<>();
-        for(String word : words) {
+        for (String word : words) {
 
-            if(word.length() == pattern.length()) {
+            if (word.length() == pattern.length()) {
                 result.add(word);
                 Map<Character, Character> map = new HashMap<>();
-                for(int i =0 ; i < word.length(); i++) {
+                for (int i = 0; i < word.length(); i++) {
 
-                    if(map.containsKey(word.charAt(i))) {
-                        if(map.get(word.charAt(i)) != pattern.charAt(i)) {
-                            result.remove(result.size()-1);
+                    if (map.containsKey(word.charAt(i))) {
+                        if (map.get(word.charAt(i)) != pattern.charAt(i)) {
+                            result.remove(result.size() - 1);
                             break;
                         }
                     } else {

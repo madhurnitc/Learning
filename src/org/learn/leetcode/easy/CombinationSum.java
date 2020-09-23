@@ -16,14 +16,14 @@ public class CombinationSum {
 
     private List<List<Integer>> getResult(int[] candidates, int target, List<List<Integer>> result, List<Integer> curr, int startPos) {
 
-        if(target>0) {
+        if (target > 0) {
 
-            for(int i =startPos; i<candidates.length && target>=candidates[i]; i++) {
+            for (int i = startPos; i < candidates.length && target >= candidates[i]; i++) {
                 curr.add(candidates[i]);
-                getResult(candidates, target-candidates[i],result, curr,i);
-                curr.remove(curr.size()-1);
+                getResult(candidates, target - candidates[i], result, curr, i);
+                curr.remove(curr.size() - 1);
             }
-        }else if (target == 0) {
+        } else if (target == 0) {
             result.add(new ArrayList<>(curr));
         }
 
@@ -31,6 +31,6 @@ public class CombinationSum {
     }
 
     public static void main(String[] args) {
-        new CombinationSum().combinationSum(new int[] {2,3,6,7}, 7);
+        new CombinationSum().combinationSum(new int[]{2, 3, 6, 7}, 7);
     }
 }

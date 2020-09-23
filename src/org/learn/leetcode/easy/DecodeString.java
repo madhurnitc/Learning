@@ -8,33 +8,33 @@ public class DecodeString {
         //string.push(new StringBuilder());
         Stack<Integer> count = new Stack<>();
         int i = 0;
-        while(i<s.length()) {
+        while (i < s.length()) {
 
             char ch = s.charAt(i);
-            if(Character.isDigit(ch)) {
+            if (Character.isDigit(ch)) {
                 int number = 0;
-                while(Character.isDigit(s.charAt(i))) {
-                    number =  number*10 + (s.charAt(i)-'0');
+                while (Character.isDigit(s.charAt(i))) {
+                    number = number * 10 + (s.charAt(i) - '0');
                     i++;
                 }
                 count.push(number);
 
-            }else if (ch == '[') {
+            } else if (ch == '[') {
                 string.push(new StringBuilder());
                 i++;
 
-            }else if (ch == ']') {
-                String current  = string.pop().toString();
-                int times  = count.pop();
+            } else if (ch == ']') {
+                String current = string.pop().toString();
+                int times = count.pop();
                 StringBuilder temp = new StringBuilder();
-                for(int j  = 0; j< times; j++) {
+                for (int j = 0; j < times; j++) {
                     temp.append(current);
                 }
 
                 string.push(string.pop().append(temp.toString()));
                 i++;
 
-            }else{
+            } else {
                 string.peek().append(ch);
                 i++;
             }

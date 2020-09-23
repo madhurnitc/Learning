@@ -10,6 +10,7 @@ public class NestedIterator implements Iterator<Integer> {
     List<Integer> flattendList = new ArrayList<>();
 
     int position;
+
     public NestedIterator(List<NestedInteger> nestedList) {
 
         position = 0;
@@ -19,8 +20,8 @@ public class NestedIterator implements Iterator<Integer> {
     @Override
     public Integer next() {
 
-        if(hasNext()) {
-            Integer i= flattendList.get(position);
+        if (hasNext()) {
+            Integer i = flattendList.get(position);
             position++;
             return i;
         }
@@ -30,7 +31,7 @@ public class NestedIterator implements Iterator<Integer> {
 
     @Override
     public boolean hasNext() {
-        if(position >= flattendList.size()) {
+        if (position >= flattendList.size()) {
             return false;
         }
 
@@ -40,11 +41,11 @@ public class NestedIterator implements Iterator<Integer> {
 
     public void addToFlattenedList(List<NestedInteger> nestedList) {
 
-        for(NestedInteger ni : nestedList) {
+        for (NestedInteger ni : nestedList) {
 
-            if(ni.isInteger()) {
+            if (ni.isInteger()) {
                 flattendList.add(ni.getInteger());
-            }else {
+            } else {
                 addToFlattenedList(ni.getList());
             }
         }

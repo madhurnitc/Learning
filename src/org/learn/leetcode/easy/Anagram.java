@@ -4,7 +4,7 @@ public class Anagram {
 
     public boolean isAnagram(String s, String t) {
 
-        String ss= s+s;
+        String ss = s + s;
         return ss.indexOf(t) > -1;
 
     }

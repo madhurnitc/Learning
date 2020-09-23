@@ -9,20 +9,20 @@ public class HappyNumber {
 
         Set<Integer> set = new HashSet<>();
 
-        while(true) {
+        while (true) {
 
             int sum = 0;
-            while(n !=0) {
-                int r = n%10;
-                sum = sum + r*r;
-                n = n/10;
+            while (n != 0) {
+                int r = n % 10;
+                sum = sum + r * r;
+                n = n / 10;
             }
-            if(!set.contains(sum)) {
+            if (!set.contains(sum)) {
                 set.add(sum);
-            } else if( sum ==1) {
+            } else if (sum == 1) {
                 return true;
             } else {
-               return  false;
+                return false;
             }
 
             n = sum;

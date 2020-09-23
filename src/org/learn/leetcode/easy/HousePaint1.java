@@ -6,8 +6,8 @@ public class HousePaint1 {
 
         int cost = 0;
         int index = -1;
-        for(int i = 0; i<costs.length; i++) {
-            index  = findIndex(costs[i], index);
+        for (int i = 0; i < costs.length; i++) {
+            index = findIndex(costs[i], index);
             cost = cost + costs[i][0];
         }
         return cost;
@@ -16,9 +16,9 @@ public class HousePaint1 {
     private int findIndex(int[] costs, int prevIndex) {
         int minimum = Integer.MAX_VALUE;
         int index = -1;
-        for(int i = 0; i<costs.length; i++) {
+        for (int i = 0; i < costs.length; i++) {
 
-            if( costs[i] < minimum && i != prevIndex) {
+            if (costs[i] < minimum && i != prevIndex) {
                 minimum = costs[i];
                 index = i;
             }

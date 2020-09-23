@@ -5,7 +5,7 @@ import java.util.*;
 public class Solution17 {
     public static int droppedRequests(List<Integer> requestTime) {
         Map<Integer, Integer> map = new HashMap<>();
-        for(int key : requestTime){
+        for (int key : requestTime) {
             map.put(key, map.getOrDefault(key, 0) + 1);
         }
 
@@ -18,16 +18,16 @@ public class Solution17 {
         int w2_size = 0, w3_size = 0;
         int w1_req = 0, w2_req = 0, w3_req = 0;
         int dropped = 0;
-        for(int i=1; i<=(int)keys[keys.length-1]; i++){
-            if(map.containsKey(i)) {
+        for (int i = 1; i <= (int) keys[keys.length - 1]; i++) {
+            if (map.containsKey(i)) {
                 w1_req = map.get(i);
-                if(w1_req > w1_limit){
+                if (w1_req > w1_limit) {
                     dropped = dropped + (w1_req - w1_limit);
                 }
                 w2_size = w2_size + 1;
                 w2_req = w2_req + w1_req;
-                if(w2_size >= w2_max_size) {
-                    if(w2_req > w2_limit) {
+                if (w2_size >= w2_max_size) {
+                    if (w2_req > w2_limit) {
                         dropped = dropped + (w2_req - w2_limit);
                     }
                     w2_req = 0;
@@ -35,26 +35,25 @@ public class Solution17 {
                 }
                 w3_size = w3_size + 1;
                 w3_req = w3_req + w1_req;
-                if(w3_size >= w3_max_size) {
-                    if(w3_req > w3_limit) {
+                if (w3_size >= w3_max_size) {
+                    if (w3_req > w3_limit) {
                         dropped = dropped + (w3_req - w3_limit);
                     }
                     w3_req = 0;
                     w3_size = 0;
                 }
-            }
-            else{
+            } else {
                 w2_size = w2_size + 1;
-                if(w2_size >= w2_max_size) {
-                    if(w2_req > w2_limit){
+                if (w2_size >= w2_max_size) {
+                    if (w2_req > w2_limit) {
                         dropped = dropped + (w2_req - w2_limit);
                     }
                     w2_req = 0;
                     w2_size = 0;
                 }
                 w3_size = w3_size + 1;
-                if(w3_size >= w3_max_size) {
-                    if(w3_req > w3_limit){
+                if (w3_size >= w3_max_size) {
+                    if (w3_req > w3_limit) {
                         dropped = dropped + (w3_req - w3_limit);
                     }
                     w3_req = 0;
@@ -62,10 +61,10 @@ public class Solution17 {
                 }
             }
         }
-        if(w2_req > w2_limit) {
+        if (w2_req > w2_limit) {
             dropped += w2_req - w2_limit;
         }
-        if(w3_req > w3_limit) {
+        if (w3_req > w3_limit) {
             dropped += w3_req - w3_limit;
         }
         return dropped;
@@ -160,7 +159,7 @@ public class Solution17 {
         //int[] a = {1,1,1,1,2,2,2,3,3,3,4,4,4,11,11,11,6,6,6,5,5,5};
 
         List<Integer> list = new ArrayList<>();
-        for(int i : a){
+        for (int i : a) {
             list.add(i);
         }
 

@@ -7,6 +7,6 @@ public class Child extends Parent {
     }
 
     public static String form(String id) {
-       return  ""+ "_InVo";
+        return "" + "_InVo";
     }
 }

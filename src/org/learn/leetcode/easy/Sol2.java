@@ -8,9 +8,9 @@ public class Sol2 {
 
         Map<Integer, Integer> map = new HashMap<>();
 
-         Collections.sort(intArray);
+        Collections.sort(intArray);
 
-        int result =0;
+        int result = 0;
 
         return result; // Return the number of pairs
     }

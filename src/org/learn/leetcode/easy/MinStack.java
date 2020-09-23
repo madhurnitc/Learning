@@ -5,9 +5,12 @@ import java.util.Stack;
 class MinStack {
 
 
-    Stack<Integer> normalStack ;
+    Stack<Integer> normalStack;
     Stack<Integer> minStack;
-    /** initialize your data structure here. */
+
+    /**
+     * initialize your data structure here.
+     */
     public MinStack() {
         normalStack = new Stack<>();
         minStack = new Stack<>();
@@ -15,11 +18,11 @@ class MinStack {
     }
 
     public void push(int x) {
-        if(normalStack.empty()) {
+        if (normalStack.empty()) {
             minStack.push(x);
-        }else {
+        } else {
 
-            if(x<= minStack.peek()) {
+            if (x <= minStack.peek()) {
                 minStack.push(x);
             }
             normalStack.push(x);
@@ -27,7 +30,7 @@ class MinStack {
     }
 
     public void pop() {
-         normalStack.pop();
+        normalStack.pop();
     }
 
     public int top() {

@@ -10,9 +10,9 @@ public class BSTInsertion {
             return new TreeNode(val);
         }
 
-        if (root.val > val ) {
+        if (root.val > val) {
             root.left = insertIntoBST(root.left, val);
-        }else if(root.val < val) {
+        } else if (root.val < val) {
             root.right = insertIntoBST(root.right, val);
         }
 

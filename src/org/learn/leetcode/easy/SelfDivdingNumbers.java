@@ -9,18 +9,18 @@ public class SelfDivdingNumbers {
 
         List<Integer> result = new ArrayList<>();
 
-        for(int i = left; i <= right ; i++) {
+        for (int i = left; i <= right; i++) {
 
             int d = 10;
             int number = i;
-            while(number != 0) {
-                int q = number/10;
-                int r = number%10;
-                if( r != 0 && number%r != 0) {
+            while (number != 0) {
+                int q = number / 10;
+                int r = number % 10;
+                if (r != 0 && number % r != 0) {
                     break;
-                }else if  (r == 0){
+                } else if (r == 0) {
                     break;
-                }else {
+                } else {
                     number = q;
                     result.add(number);
                 }
@@ -30,9 +30,9 @@ public class SelfDivdingNumbers {
         return result;
     }
 
-    public static void main(String [] args) {
+    public static void main(String[] args) {
 
         SelfDivdingNumbers selfDivdingNumbers = new SelfDivdingNumbers();
-        selfDivdingNumbers.selfDividingNumbers(1,22);
+        selfDivdingNumbers.selfDividingNumbers(1, 22);
     }
 }

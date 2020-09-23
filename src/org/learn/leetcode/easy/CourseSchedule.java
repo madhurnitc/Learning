@@ -5,25 +5,26 @@ import java.util.*;
 public class CourseSchedule {
 
     Map<Integer, Set<Integer>> coursePreq = new HashMap<>();
-    Set<Integer> visited  = new HashSet<>();
+    Set<Integer> visited = new HashSet<>();
     Stack<Integer> stack = new Stack<>();
+
     public boolean canFinish(int numCourses, int[][] prerequisites) {
 
 
-        for(int i = 0; i<prerequisites.length; i++) {
+        for (int i = 0; i < prerequisites.length; i++) {
 
-            int course =  prerequisites[i][0];
-            int preReqCourse =  prerequisites[i][1];
+            int course = prerequisites[i][0];
+            int preReqCourse = prerequisites[i][1];
 
-            if(!coursePreq.containsKey(course)) {
+            if (!coursePreq.containsKey(course)) {
                 coursePreq.put(course, new HashSet<Integer>());
             }
 
             coursePreq.get(course).add(preReqCourse);
         }
 
-        for(Integer entry : coursePreq.keySet()) {
-            if( !visited.contains(entry)) {
+        for (Integer entry : coursePreq.keySet()) {
+            if (!visited.contains(entry)) {
                 dfs(entry);
             }
 
@@ -35,10 +36,10 @@ public class CourseSchedule {
     private void dfs(Integer course) {
         visited.add(course);
 
-        if(coursePreq.containsKey(course)) {
+        if (coursePreq.containsKey(course)) {
             Set<Integer> preReqSet = coursePreq.get(course);
-            for(Integer preReqCourse : preReqSet) {
-                if(!visited.contains(coursePreq)) {
+            for (Integer preReqCourse : preReqSet) {
+                if (!visited.contains(coursePreq)) {
                     dfs(preReqCourse);
                 }
 
@@ -51,7 +52,7 @@ public class CourseSchedule {
     }
 
     public static void main(String[] args) {
-       int[][] pre  = new int[][]{{1,0}};
+        int[][] pre = new int[][]{{1, 0}};
 
         System.out.println(new CourseSchedule().canFinish(2, pre));
 

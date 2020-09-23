@@ -4,15 +4,15 @@ public class DIStringMatch {
 
     public int[] diStringMatch(String S) {
         int N = S.length();
-        int[] A = new int[N+1];
+        int[] A = new int[N + 1];
         int l = 0;
         int h = N;
 
-        for(int i =0; i<N; i++) {
-            if(S.charAt(i) == 'I') {
+        for (int i = 0; i < N; i++) {
+            if (S.charAt(i) == 'I') {
                 A[i] = l;
                 l++;
-            }else if(S.charAt(i) == 'D') {
+            } else if (S.charAt(i) == 'D') {
                 A[i] = h;
                 h--;
             }

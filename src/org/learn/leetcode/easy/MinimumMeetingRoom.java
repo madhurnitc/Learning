@@ -6,14 +6,14 @@ import java.util.PriorityQueue;
 
 public class MinimumMeetingRoom {
     public int minMeetingRooms(Interval[] intervals) {
-        PriorityQueue<Integer> pq = new PriorityQueue<>(intervals.length, new Comparator<Integer>(){
+        PriorityQueue<Integer> pq = new PriorityQueue<>(intervals.length, new Comparator<Integer>() {
 
             public int compare(Integer a, Integer b) {
                 return a.compareTo(b);
             }
         });
 
-        Arrays.sort(intervals, new Comparator<Interval>(){
+        Arrays.sort(intervals, new Comparator<Interval>() {
 
             public int compare(Interval i1, Interval i2) {
                 return Integer.compare(i1.start, i2.start);
@@ -22,8 +22,8 @@ public class MinimumMeetingRoom {
 
         pq.offer(intervals[0].end);
 
-        for(int i = 1; i< intervals.length; i++) {
-            if(intervals[i].start> pq.peek()) {
+        for (int i = 1; i < intervals.length; i++) {
+            if (intervals[i].start > pq.peek()) {
                 pq.poll();
             }
 

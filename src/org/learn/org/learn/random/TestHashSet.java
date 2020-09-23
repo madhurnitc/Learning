@@ -5,7 +5,7 @@ import java.util.Set;
 
 public class TestHashSet {
 
-    public static void main(String[] args){
+    public static void main(String[] args) {
         Set<String> set = new HashSet<>();
         System.out.println(set.add("madhur"));
         System.out.println(set.add("madhur"));

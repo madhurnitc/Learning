@@ -9,12 +9,14 @@ public class MedianFinder {
     public MedianFinder() {
 
         minHeap = new PriorityQueue<>();
-        maxHeap = new PriorityQueue<>(new Comparator<Integer>() {
-            @Override
-            public int compare(Integer o1, Integer o2) {
-                return Integer.compare(o2, o1);
-            }
-        });
+//        maxHeap = new PriorityQueue<>(new Comparator<Integer>() {
+//            @Override
+//            public int compare(Integer o1, Integer o2) {
+//                return Integer.compare(o2, o1);
+//            }
+//        });
+//
+        maxHeap = new PriorityQueue<>((o1, o2) -> o2-o1);
 
     }
 

@@ -1,11 +1,12 @@
 package org.learn.leetcode.easy;
 
+import java.util.Comparator;
 import java.util.PriorityQueue;
 
 public class KthSmallestInSortedMatrix {
 
     public int kthSmallest(int[][] matrix, int k) {
-        PriorityQueue<Tuple> pq = new PriorityQueue<>();
+        PriorityQueue<Tuple> pq = new PriorityQueue<>((o1,o2)-> o1.val-o2.val);
         int n = matrix.length;
         for (int i = 0; i < matrix[0].length; i++) {
             pq.offer(new Tuple(0, i, matrix[0][i]));

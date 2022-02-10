@@ -1,44 +1,37 @@
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
 public class Problem57 {
 
     public int[][] insert(int[][] intervals, int[] newInterval) {
-
-        List<int[]> list = new LinkedList<>();
-        int i  = 0;
-        while( i< intervals.length && newInterval[0] > intervals[i][0]) {
-            list.add(intervals[i++]);
+        int i = 0;
+        List<int[]> result = new ArrayList<>();
+        while(i < intervals.length && intervals[i][1]< newInterval[0]) {
+            result.add(intervals[i]);
+            i++;
         }
 
-        if(!mergeRequired(list, newInterval)) {
-            list.add(newInterval);
-        }else {
-            int[] lastInterval = list.get(list.size()-1);
-            lastInterval[1] = Math.max(lastInterval[1], newInterval[1]);
+        while(i < intervals.length && intervals[i][0] <= newInterval[1]){
+            newInterval = new int[] { Math.min(intervals[i][0], newInterval[0]),
+                    Math.max(intervals[i][1], newInterval[1])};
+            i++;
         }
 
-        performMerge(intervals, list, i);
-
-        return list.toArray(new int[list.size()][2]);
-    }
-
-    private void performMerge(int[][] intervals, List<int[]> list, int i) {
-
+        result.add(newInterval);
         while(i < intervals.length) {
-            int[] currentInterval = intervals[i];
-            if(currentInterval[0] > list.get(list.size()-1)[1]) {
-                list.add(currentInterval);
-            }else {
-                int[] lastInterval = list.get(list.size()-1);
-                lastInterval[1] = Math.max(lastInterval[1], currentInterval[1]);
-            }
+            result.add(intervals[i]);
+            i++;
         }
+
+        return result.toArray(new int[result.size()][2]);
     }
 
 
-    private boolean mergeRequired(List<int[]> list, int[] newInterval) {
+    public static void main(String[] args) {
 
-        return (!list.isEmpty()) && list.get(list.size()-1)[1] >= newInterval[0];
+        int[][] intervals = {{1,2},{3,5},{6,7},{8,10},{12,16}};
+        int[] newInterval = {4,8};
+        System.out.println(new Problem57().insert(intervals, newInterval));
     }
 }

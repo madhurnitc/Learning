@@ -30,6 +30,6 @@ public class ValidBst {
         root.right.left = new TreeNode(6);
         root.right.right = new TreeNode(20);
 
-        new ValidBst().isValidBST(root);
+        System.out.println(new ValidBst().isValidBST(root));
     }
 }

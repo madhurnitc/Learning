@@ -24,16 +24,16 @@ public class MyClass {
             int inputSize = splittedArray.length;
             int max =0;
             boolean errorOccured = false;
-            for(int j = 0; j< inputSize; j++){
+            for (String s : splittedArray) {
                 try {
-                    int event = Integer.parseInt(splittedArray[j]);
-                    if(event > max) {
+                    int event = Integer.parseInt(s);
+                    if (event > max) {
                         max = event;
                     }
 
-                }catch(Exception e) {
+                } catch (Exception e) {
                     errorOccured = true;
-                    System.out.println(FAILURE + "=>" + "WRONG INPUT (" + i+1 + ")" );
+                    System.out.println(FAILURE + "=>" + "WRONG INPUT (" + i + 1 + ")");
                 }
             }
 

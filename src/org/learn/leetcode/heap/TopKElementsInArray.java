@@ -10,7 +10,7 @@ public class TopKElementsInArray {
         PriorityQueue<Number> pq = new PriorityQueue<>(new Comparator<Number>() {
             @Override
             public int compare(Number o1, Number o2) {
-                return Integer.compare(o2.count, o1.count);
+                return Integer.compare(o1.count, o2.count);
             }
         });
 
@@ -21,7 +21,14 @@ public class TopKElementsInArray {
 
         for(Map.Entry<Integer, Integer> entry : map.entrySet()) {
             Number number = new Number(entry.getKey(), entry.getValue());
-            pq.offer(number);
+            if(pq.size()== k){
+                if(pq.peek().count < number.count){
+                    pq.poll();
+                    pq.offer(number);
+                }
+            } else {
+                pq.offer(number);
+            }
         }
 
         for (int i = 0; i<k;i++) {
